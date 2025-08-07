@@ -12,7 +12,7 @@
 #' @param codon_start the codon starting position for matched sequence
 #' @return Dataframe containing useful data including the matched sequence, estimated number of repeats and location of where the error occurred (if any)
 #' @examples
-#' Matched_sequence_df <- repeat_sizer("R/Example.fastq")
+#' Matched_sequence_df <- repeat_sizer(fastq_example)
 #' @export
 Lev_repeat_sizer <- function(
     fastq = NULL,

@@ -12,6 +12,7 @@ Lev_repeat_sizer(
   max.distance = 0.01,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
+  ignore_last_codon = 1,
   codon_start = 2
 )
 }
@@ -30,6 +31,8 @@ Lev_repeat_sizer(
 
 \item{interruptions_repeat_no}{Minimum number of sequential tandem repeats in matched sequence to allow}
 
+\item{ignore_last_codon}{Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats}
+
 \item{codon_start}{the codon starting position for matched sequence}
 }
 \value{
@@ -39,5 +42,5 @@ Dataframe containing useful data including the matched sequence, estimated numbe
 Estimating tandem repeat copy numbers in sequencing data via Levenshtein distance metrics
 }
 \examples{
-Matched_sequence_df <- repeat_sizer("R/Example.fastq")
+Matched_sequence_df <- repeat_sizer(fastq_example)
 }

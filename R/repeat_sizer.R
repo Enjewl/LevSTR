@@ -19,7 +19,7 @@ Lev_repeat_sizer <- function(
     left_flank_seq = "CAAGTCCTTC",
     right_flank_seq = "CAACAGCCGCCACCG",
     repeat_unit_seq = "CAG",
-    max.distance = 0.01,
+    max.distance = 0.04,
     min_n_repeats = 10,
     interruptions_repeat_no = 2,
     ignore_last_codon = 1,
@@ -46,11 +46,14 @@ Lev_repeat_sizer <- function(
   calculation <- function(x) {
     if (ignore_last_codon < 1) {
       value <- as.numeric(x[-length(x)]) > interruptions_repeat_no
+    } else {
+      value <- as.numeric(x[-c((length(x) - ignore_last_codon + 1):length(x))]) > interruptions_repeat_no
     }
-    else {
-      value <- as.numeric(x[-c((length(x) - ignore_last_codon):length(x))]) > interruptions_repeat_no
+    if (all(!value)) {
+      return(NA)
+    } else {
+      return(sum(as.numeric(x)[which(value)[1]:which(value)[length(which(value))]]))
     }
-    return(sum(as.numeric(x)[which(value)[1]:which(value)[length(which(value))]]))
   }
 
   f_match_seq_list <- repeat_matcher(fastq_df$Sequence)

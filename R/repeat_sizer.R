@@ -8,6 +8,7 @@
 #' @param max.distance Max Levenshtein distance allowed for match
 #' @param min_n_repeats Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 #' @param interruptions_repeat_no Minimum number of sequential tandem repeats in matched sequence to allow
+#' @param ignore_last_codon Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats
 #' @param codon_start the codon starting position for matched sequence
 #' @return Dataframe containing useful data including the matched sequence, estimated number of repeats and location of where the error occurred (if any)
 #' @examples
@@ -21,13 +22,20 @@ Lev_repeat_sizer <- function(
     max.distance = 0.01,
     min_n_repeats = 10,
     interruptions_repeat_no = 2,
+    ignore_last_codon = 1,
     codon_start = 2
 ){
   if (is.null(fastq)) {
     warning("fastq file is missing")
   }
   else {
-  fastq_df <- readFastq(fastq)
+
+    if (!is.data.frame(fastq)) {
+      fastq_df <- readFastq(fastq)
+    }
+    else {
+      fastq_df <- fastq
+    }
 
   repeat_matcher <- function(seq){
     repeat_match <- aregexec(paste0(left_flank_seq, paste0("(", repeat_unit_seq, ")", "{", min_n_repeats, ",}"),  right_flank_seq), seq, max.distance = max.distance)
@@ -36,7 +44,12 @@ Lev_repeat_sizer <- function(
   }
 
   calculation <- function(x) {
-    value <- as.numeric(x[-length(x)]) > interruptions_repeat_no
+    if (ignore_last_codon < 1) {
+      value <- as.numeric(x[-length(x)]) > interruptions_repeat_no
+    }
+    else {
+      value <- as.numeric(x[-c((length(x) - ignore_last_codon):length(x))]) > interruptions_repeat_no
+    }
     return(sum(as.numeric(x)[which(value)[1]:which(value)[length(which(value))]]))
   }
 

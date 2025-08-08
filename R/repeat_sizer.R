@@ -1,7 +1,7 @@
 #' Tandem repeat estimator from sequence data using Lev distances
 #'
 #' Estimating tandem repeat copy numbers in sequencing data via Levenshtein distance metrics
-#' @param fastq fastq file
+#' @param fastq Path to fastq file
 #' @param left_flank_seq Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
 #' @param right_flank_seq Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
 #' @param repeat_unit_seq Sequence of the tandem repeat

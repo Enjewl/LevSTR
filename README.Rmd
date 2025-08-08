@@ -29,20 +29,28 @@ You can install the development version of LevSTR from [GitHub](https://github.c
 pak::pak("Enjewl/Lev-STR")
 ```
 
-## Example
+## Running the repeat sizer
 
-This is a basic example which shows you how to solve a common problem:
+The repeat sizer is a simple function that utilizes the [agrep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/agrep) fuzzy matching to identify reads containing tandem repeats of interest. The following parameters are required:
+* fastq	    Path to fastq file
+* left_flank_seq    Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
+* right_flank_seq   Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
+* repeat_unit_seq   Sequence of the tandem repeat
+* max.distance    Max Levenshtein distance allowed for match
+* min_n_repeats   Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
+* interruptions_repeat_no    Minimum number of sequential tandem repeats in matched sequence to allow
+* ignore_last_codon   Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats
+* codon_start   the codon starting position for matched sequence
 
 ```{r example}
-library(LevSTR)
+invisible(library(LevSTR))
 ## basic example code
 Matched_sequence_df <- Lev_repeat_sizer(fastq_example)
-head(Matched_sequence_df)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+## Plotting
 
-You can also embed plots, for example:
+Use the LevSTR::LevPlot plotting function to plot a basic histogram.
 
 ```{r pressure, echo = FALSE}
 invisible(LevPlot(Matched_sequence_df, xlim = c(0,100)))

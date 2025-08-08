@@ -32,6 +32,7 @@ pak::pak("Enjewl/Lev-STR")
 ## Running the repeat sizer
 
 The repeat sizer is a simple function that utilizes the [agrep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/agrep) fuzzy matching to identify reads containing tandem repeats of interest. The following parameters are required:
+
 * **fastq** - Path to fastq file
 * **left_flank_seq** - Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
 * **right_flank_seq** - Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat

@@ -24,20 +24,22 @@ pak::pak("Enjewl/Lev-STR")
 The repeat sizer is a simple function that utilizes the
 [agrep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/agrep)
 fuzzy matching to identify reads containing tandem repeats of interest.
-The following parameters are required: \* **fastq** - Path to fastq file
-\* **left_flank_seq** - Left side sequence flanking the tandem repeat,
-example is given for Huntington’s disease CAG repeat \*
-**right_flank_seq** - Right side sequence flanking the tandem repeat,
-example is given for Huntington’s disease CAG repeat \*
-**repeat_unit_seq** - Sequence of the tandem repeat \*
-**max.distance** - Max Levenshtein distance allowed for match \*
-**min_n_repeats** - Minimum number of tandem repeats allowed for match
-(filters out sequences that contain less than this number of repeats) \*
-**interruptions_repeat_no** - Minimum number of sequential tandem
-repeats in matched sequence to allow \* **ignore_last_codon** - Ignores
-the last X number of codons in right flanking sequence to ignore when
-calculating repeats \* **codon_start** - The codon starting position for
-matched sequence
+The following parameters are required:
+
+- **fastq** - Path to fastq file
+- **left_flank_seq** - Left side sequence flanking the tandem repeat,
+  example is given for Huntington’s disease CAG repeat
+- **right_flank_seq** - Right side sequence flanking the tandem repeat,
+  example is given for Huntington’s disease CAG repeat
+- **repeat_unit_seq** - Sequence of the tandem repeat
+- **max.distance** - Max Levenshtein distance allowed for match
+- **min_n_repeats** - Minimum number of tandem repeats allowed for match
+  (filters out sequences that contain less than this number of repeats)
+- **interruptions_repeat_no** - Minimum number of sequential tandem
+  repeats in matched sequence to allow
+- **ignore_last_codon** - Ignores the last X number of codons in right
+  flanking sequence to ignore when calculating repeats
+- **codon_start** - The codon starting position for matched sequence
 
 ``` r
 library(LevSTR)

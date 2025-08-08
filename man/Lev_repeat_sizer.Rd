@@ -9,7 +9,7 @@ Lev_repeat_sizer(
   left_flank_seq = "CAAGTCCTTC",
   right_flank_seq = "CAACAGCCGCCACCG",
   repeat_unit_seq = "CAG",
-  max.distance = 0.04,
+  max.distance = 0.05,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
   ignore_last_codon = 1,
@@ -25,13 +25,13 @@ Lev_repeat_sizer(
 
 \item{repeat_unit_seq}{Sequence of the tandem repeat (i.e., CAG for Huntington's disease)}
 
-\item{max.distance}{Max Levenshtein distance allowed for match}
+\item{max.distance}{Max Levenshtein distance allowed for match (numeric from 0-0.8, 0 = perfect match, default = 0.05)}
 
 \item{min_n_repeats}{Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)}
 
 \item{interruptions_repeat_no}{Minimum number of sequential tandem repeats in matched sequence to allow}
 
-\item{ignore_last_codon}{Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats}
+\item{ignore_last_codon}{Ignores the last X number of codons in right flanking sequence to ignore when calculating repeat length}
 
 \item{codon_start}{the codon starting position for matched sequence}
 }

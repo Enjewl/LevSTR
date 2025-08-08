@@ -5,10 +5,10 @@
 #' @param left_flank_seq Left side sequence flanking the tandem repeat (i.e., CAAGTCCTTC for Huntington's disease CAG repeat)
 #' @param right_flank_seq Right side sequence flanking the tandem repeat (i.e., CAACAGCCGCCACCG for Huntington's disease CAG repeat)
 #' @param repeat_unit_seq Sequence of the tandem repeat (i.e., CAG for Huntington's disease)
-#' @param max.distance Max Levenshtein distance allowed for match
+#' @param max.distance Max Levenshtein distance allowed for match (numeric from 0-0.8, 0 = perfect match, default = 0.05)
 #' @param min_n_repeats Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 #' @param interruptions_repeat_no Minimum number of sequential tandem repeats in matched sequence to allow
-#' @param ignore_last_codon Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats
+#' @param ignore_last_codon Ignores the last X number of codons in right flanking sequence to ignore when calculating repeat length
 #' @param codon_start the codon starting position for matched sequence
 #' @return Dataframe containing useful data including the matched sequence, estimated number of repeats and location of where the error occurred (if any)
 #' @examples
@@ -19,7 +19,7 @@ Lev_repeat_sizer <- function(
     left_flank_seq = "CAAGTCCTTC",
     right_flank_seq = "CAACAGCCGCCACCG",
     repeat_unit_seq = "CAG",
-    max.distance = 0.04,
+    max.distance = 0.05,
     min_n_repeats = 10,
     interruptions_repeat_no = 2,
     ignore_last_codon = 1,

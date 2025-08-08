@@ -10,7 +10,7 @@
 #' @param xlab x-axis label
 #' @param ylab y-axis label
 #' @examples
-#' Matched_sequence_df <- repeat_sizer(fastq_example)
+#' Matched_sequence_df <- Lev_repeat_sizer(fastq_example)
 #' LevPlot(Matched_sequence_df, xlim = c(0,100))
 #' @export
 LevPlot <- function(

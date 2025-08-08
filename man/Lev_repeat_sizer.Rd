@@ -42,5 +42,5 @@ Dataframe containing useful data including the matched sequence, estimated numbe
 Estimating tandem repeat copy numbers in sequencing data via Levenshtein distance metrics
 }
 \examples{
-Matched_sequence_df <- repeat_sizer(fastq_example)
+Matched_sequence_df <- Lev_repeat_sizer(fastq_example)
 }

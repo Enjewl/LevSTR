@@ -9,7 +9,7 @@ Lev_repeat_sizer(
   left_flank_seq = "CAAGTCCTTC",
   right_flank_seq = "CAACAGCCGCCACCG",
   repeat_unit_seq = "CAG",
-  max.distance = 0.01,
+  max.distance = 0.04,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
   ignore_last_codon = 1,
@@ -19,9 +19,9 @@ Lev_repeat_sizer(
 \arguments{
 \item{fastq}{fastq file}
 
-\item{left_flank_seq}{Left side sequence flanking the tandem repeat}
+\item{left_flank_seq}{Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat}
 
-\item{right_flank_seq}{Right side sequence flanking the tandem repeat}
+\item{right_flank_seq}{Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat}
 
 \item{repeat_unit_seq}{Sequence of the tandem repeat}
 

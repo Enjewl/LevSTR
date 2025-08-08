@@ -34,9 +34,9 @@ pak::pak("Enjewl/Lev-STR")
 The repeat sizer is a simple function that utilizes the [agrep](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/agrep) fuzzy matching to identify reads containing tandem repeats of interest. The following parameters are required:
 
 * **fastq** - Path to fastq file
-* **left_flank_seq** - Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
-* **right_flank_seq** - Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
-* **repeat_unit_seq** - Sequence of the tandem repeat
+* **left_flank_seq** - Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat (i.e., CAAGTCCTTC for Huntington's disease CAG repeat)
+* **right_flank_seq** - Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat (i.e., CAACAGCCGCCACCG for Huntington's disease CAG repeat)
+* **repeat_unit_seq** - Sequence of the tandem repeat (i.e., CAG for Huntington's disease)
 * **max.distance** - Max Levenshtein distance allowed for match
 * **min_n_repeats** - Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 * **interruptions_repeat_no** - Minimum number of sequential tandem repeats in matched sequence to allow
@@ -44,9 +44,22 @@ The repeat sizer is a simple function that utilizes the [agrep](https://www.rdoc
 * **codon_start** - The codon starting position for matched sequence
 
 ```{r example}
-library(LevSTR)
+library(LevSTR, quietly = TRUE)
 ## basic example code
-Matched_sequence_df <- Lev_repeat_sizer(fastq_example)
+Matched_sequence_df <- Lev_repeat_sizer(
+  fastq = fastq_example,
+  left_flank_seq = "CAAGTCCTTC",
+  right_flank_seq = "CAACAGCCGCCACCG",
+  repeat_unit_seq = "CAG",
+  max.distance = 0.04,
+  min_n_repeats = 10,
+  interruptions_repeat_no = 2,
+  ignore_last_codon = 1,
+  codon_start = 2)
+
+knitr::kable(head(Matched_sequence_df), 
+             caption = "Sample Data Preview",
+             align = "c")
 ```
 
 ## Plotting

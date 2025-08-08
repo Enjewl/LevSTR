@@ -19,11 +19,11 @@ Lev_repeat_sizer(
 \arguments{
 \item{fastq}{Path to fastq file}
 
-\item{left_flank_seq}{Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat}
+\item{left_flank_seq}{Left side sequence flanking the tandem repeat (i.e., CAAGTCCTTC for Huntington's disease CAG repeat)}
 
-\item{right_flank_seq}{Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat}
+\item{right_flank_seq}{Right side sequence flanking the tandem repeat (i.e., CAACAGCCGCCACCG for Huntington's disease CAG repeat)}
 
-\item{repeat_unit_seq}{Sequence of the tandem repeat}
+\item{repeat_unit_seq}{Sequence of the tandem repeat (i.e., CAG for Huntington's disease)}
 
 \item{max.distance}{Max Levenshtein distance allowed for match}
 

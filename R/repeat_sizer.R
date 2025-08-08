@@ -2,9 +2,9 @@
 #'
 #' Estimating tandem repeat copy numbers in sequencing data via Levenshtein distance metrics
 #' @param fastq Path to fastq file
-#' @param left_flank_seq Left side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
-#' @param right_flank_seq Right side sequence flanking the tandem repeat, example is given for Huntington's disease CAG repeat
-#' @param repeat_unit_seq Sequence of the tandem repeat
+#' @param left_flank_seq Left side sequence flanking the tandem repeat (i.e., CAAGTCCTTC for Huntington's disease CAG repeat)
+#' @param right_flank_seq Right side sequence flanking the tandem repeat (i.e., CAACAGCCGCCACCG for Huntington's disease CAG repeat)
+#' @param repeat_unit_seq Sequence of the tandem repeat (i.e., CAG for Huntington's disease)
 #' @param max.distance Max Levenshtein distance allowed for match
 #' @param min_n_repeats Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 #' @param interruptions_repeat_no Minimum number of sequential tandem repeats in matched sequence to allow

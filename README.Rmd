@@ -37,7 +37,7 @@ This is a basic example which shows you how to solve a common problem:
 library(LevSTR)
 ## basic example code
 Matched_sequence_df <- Lev_repeat_sizer(fastq_example)
-LevPlot(Matched_sequence_df, xlim = c(0,100))
+head(Matched_sequence_df)
 ```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
@@ -45,5 +45,5 @@ You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-da
 You can also embed plots, for example:
 
 ```{r pressure, echo = FALSE}
-LevPlot(Matched_sequence_df, xlim = c(0,100))
+invisible(LevPlot(Matched_sequence_df, xlim = c(0,100)))
 ```

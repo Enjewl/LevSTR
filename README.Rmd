@@ -44,8 +44,8 @@ The repeat sizer is a simple function that utilizes the [agrep](https://www.rdoc
 * **codon_start** - The codon starting position for matched sequence
 
 ```{r example}
-library(LevSTR, quietly = TRUE)
-## basic example code
+suppressPackageStartupMessages(library(LevSTR))
+
 Matched_sequence_df <- Lev_repeat_sizer(
   fastq = fastq_example,
   left_flank_seq = "CAAGTCCTTC",
@@ -56,16 +56,12 @@ Matched_sequence_df <- Lev_repeat_sizer(
   interruptions_repeat_no = 2,
   ignore_last_codon = 1,
   codon_start = 2)
-
-knitr::kable(head(Matched_sequence_df), 
-             caption = "Sample Data Preview",
-             align = "c")
 ```
 
 ## Plotting
 
 Use the LevSTR::LevPlot plotting function to plot a basic histogram.
 
-```{r pressure, echo = FALSE}
+```{r example-plot}
 invisible(LevPlot(Matched_sequence_df, xlim = c(0,100)))
 ```

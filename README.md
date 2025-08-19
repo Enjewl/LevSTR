@@ -68,3 +68,17 @@ invisible(LevPlot(Matched_sequence_df, xlim = c(0,100)))
 ```
 
 <img src="man/figures/README-example-plot-1.png" width="100%" />
+
+## Fancy plots
+
+You can use ggplot to make fancier plots.
+
+``` r
+library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.4.3
+ggplot(Matched_sequence_df, aes(repeat_length)) +
+  geom_histogram(binwidth = 1) +
+  theme_minimal(base_size = 20)
+```
+
+<img src="man/figures/README-ggplot-plot-1.png" width="100%" />

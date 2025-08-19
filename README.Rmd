@@ -65,3 +65,14 @@ Use the LevSTR::LevPlot plotting function to plot a basic histogram.
 ```{r example-plot}
 invisible(LevPlot(Matched_sequence_df, xlim = c(0,100)))
 ```
+
+## Fancy plots
+
+You can use ggplot to make fancier plots.
+
+```{r ggplot-plot}
+library(ggplot2)
+ggplot(Matched_sequence_df, aes(repeat_length)) +
+  geom_histogram(binwidth = 1) +
+  theme_minimal(base_size = 20)
+```

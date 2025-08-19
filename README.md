@@ -16,7 +16,7 @@ You can install the development version of LevSTR from
 
 ``` r
 # install.packages("pak")
-pak::pak("Enjewl/Lev-STR")
+pak::pak("Enjewl/LevSTR")
 ```
 
 ## Running the repeat sizer

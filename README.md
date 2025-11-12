@@ -40,12 +40,17 @@ The following parameters are required:
   (filters out sequences that contain less than this number of repeats)
 - **interruptions_repeat_no** - Minimum number of sequential tandem
   repeats in matched sequence to allow
+- **ignore_first_codon** - Ignores the first X number of codons in left
+  flanking sequence to ignore when calculating repeats
 - **ignore_last_codon** - Ignores the last X number of codons in right
   flanking sequence to ignore when calculating repeats
 - **codon_start** - The codon starting position for matched sequence
 
 ``` r
 suppressPackageStartupMessages(library(LevSTR))
+#> Warning: package 'tibble' was built under R version 4.4.3
+#> Warning: package 'stringr' was built under R version 4.4.3
+#> Warning: package 'data.table' was built under R version 4.4.3
 
 Matched_sequence_df <- Lev_repeat_sizer(
   fastq = fastq_example,
@@ -55,6 +60,7 @@ Matched_sequence_df <- Lev_repeat_sizer(
   max.distance = 0.04,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
+  ignore_first_codon = 2,
   ignore_last_codon = 1,
   codon_start = 2)
 ```

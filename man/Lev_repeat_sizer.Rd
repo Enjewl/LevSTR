@@ -12,6 +12,7 @@ Lev_repeat_sizer(
   max.distance = 0.05,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
+  ignore_first_codon = 2,
   ignore_last_codon = 1,
   codon_start = 2
 )
@@ -30,6 +31,8 @@ Lev_repeat_sizer(
 \item{min_n_repeats}{Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)}
 
 \item{interruptions_repeat_no}{Minimum number of sequential tandem repeats in matched sequence to allow}
+
+\item{ignore_first_codon}{Ignores the first X number of codons in left flanking sequence to ignore when calculating repeat length}
 
 \item{ignore_last_codon}{Ignores the last X number of codons in right flanking sequence to ignore when calculating repeat length}
 

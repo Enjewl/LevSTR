@@ -8,6 +8,7 @@
 #' @param max.distance Max Levenshtein distance allowed for match (numeric from 0-0.8, 0 = perfect match, default = 0.05)
 #' @param min_n_repeats Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 #' @param interruptions_repeat_no Minimum number of sequential tandem repeats in matched sequence to allow
+#' @param ignore_first_codon Ignores the first X number of codons in left flanking sequence to ignore when calculating repeat length
 #' @param ignore_last_codon Ignores the last X number of codons in right flanking sequence to ignore when calculating repeat length
 #' @param codon_start the codon starting position for matched sequence
 #' @return Dataframe containing useful data including the matched sequence, estimated number of repeats and location of where the error occurred (if any)
@@ -22,6 +23,7 @@ Lev_repeat_sizer <- function(
     max.distance = 0.05,
     min_n_repeats = 10,
     interruptions_repeat_no = 2,
+    ignore_first_codon = 2,
     ignore_last_codon = 1,
     codon_start = 2
 ){
@@ -44,6 +46,10 @@ Lev_repeat_sizer <- function(
   }
 
   calculation <- function(x) {
+    if (ignore_first_codon > 0) {
+      x <- as.numeric(x[-c(1:ignore_first_codon)])
+    }
+
     if (ignore_last_codon < 1) {
       value <- as.numeric(x[-length(x)]) > interruptions_repeat_no
     } else {

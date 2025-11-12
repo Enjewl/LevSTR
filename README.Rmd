@@ -40,6 +40,7 @@ The repeat sizer is a simple function that utilizes the [agrep](https://www.rdoc
 * **max.distance** - Max Levenshtein distance allowed for match
 * **min_n_repeats** - Minimum number of tandem repeats allowed for match (filters out sequences that contain less than this number of repeats)
 * **interruptions_repeat_no** - Minimum number of sequential tandem repeats in matched sequence to allow
+* **ignore_first_codon** - Ignores the first X number of codons in left flanking sequence to ignore when calculating repeats
 * **ignore_last_codon** - Ignores the last X number of codons in right flanking sequence to ignore when calculating repeats
 * **codon_start** - The codon starting position for matched sequence
 
@@ -54,6 +55,7 @@ Matched_sequence_df <- Lev_repeat_sizer(
   max.distance = 0.04,
   min_n_repeats = 10,
   interruptions_repeat_no = 2,
+  ignore_first_codon = 1,
   ignore_last_codon = 1,
   codon_start = 2)
 ```
